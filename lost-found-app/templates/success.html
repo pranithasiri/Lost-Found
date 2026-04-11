@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="success-page">
+
+    <div class="success-card">
+
+        <!-- Dynamic Image -->
+        {% if is_match %}
+            <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png">
+        {% else %}
+            <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png">
+        {% endif %}
+
+        <!-- Message -->
+        <h2>{{ message }}</h2>
+
+        <p>
+            {% if is_match %}
+                A matching item has been found. We will notify both users.
+            {% else %}
+                Your item has been submitted successfully.
+            {% endif %}
+        </p>
+
+        <!-- Buttons -->
+        <div class="success-actions">
+            <a href="/dashboard">
+                <button class="success-btn primary">Go to Dashboard</button>
+            </a>
+
+            <a href="/">
+                <button class="success-btn secondary">Home</button>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

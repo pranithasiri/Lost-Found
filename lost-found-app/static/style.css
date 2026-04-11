@@ -1,0 +1,352 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f6f5f7;
+}
+
+/* Main split container */
+.main {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left panel */
+.left {
+    flex: 1;
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.left h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.left p {
+    max-width: 250px;
+    font-size: 14px;
+}
+
+.left button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Right panel */
+.right {
+    flex: 1;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form card */
+.form-box {
+    width: 300px;
+    text-align: center;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button.submit-btn:hover {
+    background: #388e3c;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Landing Page */
+.hero {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left side (text) */
+.hero-left {
+    flex: 1;
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+}
+
+.hero-left h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-left p {
+    max-width: 400px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-buttons button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: white;
+    color: #2e7d32;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+/* Right side (image) */
+.hero-right {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') no-repeat center center/cover;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navbar h2 {
+    color: #2e7d32;
+}
+
+.nav-links a {
+    margin-right: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #4CAF50;
+}
+
+/* Split screen */
+.split-container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+/* Left side */
+.split-left {
+    flex: 1;
+    background: #e8f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Right side */
+.split-right {
+    flex: 1;
+    background: #c8e6c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cards inside split */
+.split-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.split-card:hover {
+    transform: translateY(-5px);
+}
+
+.split-card h3 {
+    color: #2e7d32;
+}
+
+/* Form Page Background */
+.form-page {
+    background: #eef7ef;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Card */
+.form-card {
+    width: 420px;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* Top banner */
+.form-header {
+    height: 80px;
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* Title */
+.form-card h2 {
+    margin-bottom: 15px;
+    color: #2e7d32;
+}
+
+/* Input group */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* File input */
+input[type="file"] {
+    border: none;
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-light {
+    background: #e0e0e0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-dark {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background: #1b5e20;
+}
+
+/* Success Page */
+.success-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eef7ef;
+}
+
+.success-card {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+.success-card img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.success-card h2 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.success-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.success-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.success-btn.primary {
+    background: #2e7d32;
+    color: white;
+}
+
+.success-btn.secondary {
+    background: white;
+    border: 1px solid #2e7d32;
+    color: #2e7d32;
+}

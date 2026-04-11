@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>Dashboard</h2>
+
+    <div class="nav-links">
+        <a href="/dashboard">Home</a>
+        <a href="/report-lost">Report Lost</a>
+        <a href="/report-found">Report Found</a>
+    </div>
+
+    <div class="profile"></div>
+</div>
+
+<!-- Split Screen -->
+<div class="split-container">
+
+    <!-- Left -->
+    <div class="split-left">
+        <a href="/report-lost">
+            <div class="split-card">
+                <h3>Report Lost Item</h3>
+                <p>Lost something? Submit details here.</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Right -->
+    <div class="split-right">
+        <a href="/report-found">
+            <div class="split-card">
+                <h3>Report Found Item</h3>
+                <p>Found something? Help return it.</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Lost Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <div class="form-header"></div>
+
+        <h2>Report Lost Item</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <input type="text" name="item_name" placeholder="Item Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="description" placeholder="Description" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="location" placeholder="Last Seen Location" required>
+            </div>
+
+            <div class="form-group">
+                <input type="file" name="image" required>
+            </div>
+
+            <div class="form-actions">
+                <a href="/dashboard"><button type="button" class="btn-light">Back</button></a>
+                <button type="submit" class="btn-dark">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
