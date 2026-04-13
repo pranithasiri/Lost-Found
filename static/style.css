@@ -76,7 +76,7 @@ input {
 button.submit-btn {
     width: 100%;
     padding: 12px;
-    background: #4CAF50;
+    background: #728472;
     color: white;
     border: none;
     border-radius: 20px;
@@ -85,7 +85,7 @@ button.submit-btn {
 }
 
 button.submit-btn:hover {
-    background: #388e3c;
+    background: #728472;
 }
 
 a {
@@ -111,7 +111,7 @@ a {
 /* Left side (text) */
 .hero-left {
     flex: 1;
-    background: linear-gradient(135deg, #69746a, #5e6e5f);
+    background: linear-gradient(135deg, #728472, #728472);
     color: white;
     display: flex;
     flex-direction: column;
@@ -487,6 +487,18 @@ input[type="file"] {
     margin: 0 15px;
     color: #333;
     font-weight: 500;
+}
+
+.nav-links .logout-btn {
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-links .logout-btn:hover {
+    background: #388e3c;
 }
 
 /* Top Section */
