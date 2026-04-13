@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">L&F</div>
+
+    <div class="nav-links">
+        <a href="/dashboard">Home</a>
+        <a href="/report_lost">Submit Lost Item</a>
+        <a href="/report_found">Submit Found Item</a>
+    </div>
+</div>
+
+<!-- HERO SECTION -->
+<div class="home-hero">
+    <div class="home-content">
+
+        <div class="home-card">
+            <h3>Lost Something?</h3>
+            <p>Report your lost item quickly and easily.</p>
+            <a href="/report_lost">
+                <button>Report Lost</button>
+            </a>
+        </div>
+
+        <div class="home-card">
+            <h3>Found Something?</h3>
+            <p>Help return items to their rightful owner.</p>
+            <a href="/report_found">
+                <button>Report Found</button>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= TWO COLUMN LAYOUT ================= -->
+<div class="two-columns">
+
+    <!-- LEFT: LOST ITEMS -->
+    <div class="column">
+        <h2>Lost Items</h2>
+
+        {% for item in items %}
+            {% if item.type == "lost" %}
+            <div class="item-card">
+
+                <h4>{{ item.name }}</h4>
+
+                <p><strong>Location:</strong> {{ item.location }}</p>
+                <p><strong>Description:</strong> {{ item.description }}</p>
+                <p><strong>Posted by:</strong> {{ item.username }}</p>
+
+                <div class="item-actions">
+                    <button onclick="alertOwner('{{ item.id }}')" class="view-btn">
+                        Alert Owner
+                    </button>
+
+                    <a href="/item/{{ item.id }}" class="view-btn">
+                        View Item
+                    </a>
+                </div>
+
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- RIGHT: FOUND ITEMS -->
+    <div class="column">
+        <h2>Found Items</h2>
+
+        {% for item in items %}
+            {% if item.type == "found" %}
+            <div class="item-card">
+
+                <h4>{{ item.name }}</h4>
+
+                <p><strong>Location:</strong> {{ item.location }}</p>
+                <p><strong>Description:</strong> {{ item.description }}</p>
+                <p><strong>Posted by:</strong> {{ item.username }}</p>
+
+                <div class="item-actions">
+                    <button onclick="alertOwner('{{ item.id }}')" class="view-btn">
+                        Alert Owner
+                    </button>
+
+                    <a href="/item/{{ item.id }}" class="view-btn">
+                        View Item
+                    </a>
+                </div>
+
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- JS -->
+<script>
+function alertOwner(itemId) {
+    fetch("/alert", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ item_id: itemId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert("Owner has been notified!");
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Error sending alert");
+    });
+}
+</script>
+
+</body>
+</html>
