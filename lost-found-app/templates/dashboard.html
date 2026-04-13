@@ -6,43 +6,95 @@
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- NAVBAR -->
 <div class="navbar">
-    <h2>Dashboard</h2>
+    <div class="logo">L&F</div>
 
     <div class="nav-links">
         <a href="/dashboard">Home</a>
-        <a href="/report-lost">Report Lost</a>
-        <a href="/report-found">Report Found</a>
+        <a href="/report_lost">Submit Lost Item</a>
+        <a href="/report_found">Submit Found Item</a>
     </div>
-
-    <div class="profile"></div>
 </div>
 
-<!-- Split Screen -->
-<div class="split-container">
+<!-- HERO SECTION -->
+<div class="home-hero">
+    <div class="home-content">
 
-    <!-- Left -->
-    <div class="split-left">
-        <a href="/report-lost">
-            <div class="split-card">
-                <h3>Report Lost Item</h3>
-                <p>Lost something? Submit details here.</p>
-            </div>
-        </a>
+        <div class="home-card">
+            <h3>Lost Something?</h3>
+            <p>Report your lost item quickly and easily.</p>
+            <a href="/report_lost">
+                <button>Report Lost</button>
+            </a>
+        </div>
+
+        <div class="home-card">
+            <h3>Found Something?</h3>
+            <p>Help return items to their rightful owner.</p>
+            <a href="/report_found">
+                <button>Report Found</button>
+            </a>
+        </div>
+
     </div>
+</div>
 
-    <!-- Right -->
-    <div class="split-right">
-        <a href="/report-found">
-            <div class="split-card">
-                <h3>Report Found Item</h3>
-                <p>Found something? Help return it.</p>
+<!-- ITEMS -->
+<div class="items-section">
+
+    <h2>Recent Items</h2>
+
+    <div class="items-grid">
+
+        {% for item in items %}
+        <div class="item-card">
+
+            <h4>{{ item.name }}</h4>
+
+            <p><strong>Location:</strong> {{ item.location }}</p>
+            <p><strong>Description:</strong> {{ item.description }}</p>
+
+            <div class="item-actions">
+
+                <!-- ALERT OWNER BUTTON (NO FORM, NO REDIRECT) -->
+                <a href="javascript:void(0);" onclick="alertOwner('{{ item.id }}')" class="link-btn">
+    Alert Owner
+</a>
+                <a href="/item/{{ item.id }}">View Item</a>
+
             </div>
-        </a>
+
+        </div>
+        {% endfor %}
+
     </div>
 
 </div>
+
+<!-- JAVASCRIPT -->
+<script>
+function alertOwner(itemId) {
+    fetch('/alert', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ item_id: itemId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+            alert("Owner has been notified!");
+        } else {
+            alert("Something went wrong.");
+        }
+    })
+    .catch(err => {
+        alert("Error sending alert.");
+    });
+}
+</script>
 
 </body>
 </html>
